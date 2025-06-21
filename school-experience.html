@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>在校经历 - 樊青青</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+        /* 全局样式优化 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        /* Header导航栏样式 */
+        .header-nav {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        #nav {
+            position: relative;
+            border: none;
+            border-radius: 50px;
+            display: flex;
+            list-style: none;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            padding: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        #nav li a {
+            position: relative;
+            padding: 12px 30px;
+            font: 500 16px 'Microsoft YaHei', sans-serif;
+            border: none;
+            outline: none;
+            color: #4a5568;
+            display: inline-block;
+            text-decoration: none;
+            z-index: 3;
+            transition: color 0.3s ease;
+            border-radius: 25px;
+        }
+
+        #nav li a:hover {
+            color: #667eea;
+        }
+
+        .slide1,
+        .slide2 {
+            position: absolute;
+            display: inline-block;
+            height: 48px;
+            border-radius: 25px;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1.05);
+        }
+
+        .slide1 {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            z-index: 2;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .slide2 {
+            opacity: 0;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.3) 0%, rgba(118, 75, 162, 0.3) 100%);
+            z-index: 1;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.6) inset;
+        }
+
+        .squeeze {
+            transform: scale(0.95);
+        }
+
+        /* 调整主内容区域以避免被固定导航栏遮挡 */
+        main {
+            margin-top: 120px;
+            padding: 0 20px;
+        }
+
+        /* 容器样式优化 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 章节标题优化 */
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
+        }
+
+        /* 经历分类样式优化 */
+        .experience-category {
+            margin-bottom: 80px;
+            /* background: rgba(255, 255, 255, 0.9); */
+            border-radius: 20px;
+            padding: 40px;
+            /* box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1); */
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .experience-category h3 {
+            font-size: 2.2rem;
+            color: #2d3748;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .experience-category h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            #nav li a {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+
+            .header-nav {
+                top: 10px;
+            }
+
+            main {
+                margin-top: 100px;
+                padding: 0 15px;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .experience-category {
+                padding: 25px;
+                margin-bottom: 50px;
+            }
+
+            .experience-category h3 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #nav li a {
+                padding: 8px 15px;
+                font-size: 12px;
+            }
+
+            main {
+                margin-top: 90px;
+                padding: 0 10px;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .experience-category {
+                padding: 20px;
+            }
+
+            .experience-category h3 {
+                font-size: 1.5rem;
+            }
+        }
+        /* 横向平行时间轴样式 - 生活化个人博客风格 */
+        .timeline {
+            position: relative;
+            padding: 60px 0;
+            width: 100%;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        /* 时间线容器 - 横向平行布局 */
+        .timeline-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+            padding: 0 3%;
+            gap: 40px;
+        }
+
+        .timeline-item {
+            position: relative;
+            flex: 1;
+            max-width: 350px;
+            opacity: 0;
+            transform: translateY(20px) scale(0.98);
+            animation: timelineSlideIn 1s ease-out forwards;
+        }
+
+        .timeline-item:nth-child(1) { animation-delay: 0.2s; }
+        .timeline-item:nth-child(2) { animation-delay: 0.4s; }
+        .timeline-item:nth-child(3) { animation-delay: 0.6s; }
+
+        @keyframes timelineSlideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* 连接线样式 - 自然手绘风格 */
+        .timeline-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -20px;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg,
+                rgba(102, 126, 234, 0.6) 0%,
+                rgba(102, 126, 234, 0.8) 30%,
+                rgba(118, 75, 162, 0.8) 70%,
+                rgba(118, 75, 162, 0.6) 100%);
+            border-radius: 2px;
+            transform: translateY(-50%);
+            z-index: 1;
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.2);
+        }
+
+        /* 连接线装饰点 */
+        .timeline-item:not(:last-child)::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -25px;
+            width: 8px;
+            height: 8px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            transform: translateY(-50%);
+            z-index: 2;
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.8), 0 2px 6px rgba(102, 126, 234, 0.3);
+        }
+
+        /* 生活化个人博客风格的内容卡片 */
+        .timeline-content {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.9));
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow:
+                0 8px 25px rgba(0, 0, 0, 0.08),
+                0 3px 10px rgba(0, 0, 0, 0.05),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(15px);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            height: auto;
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* 卡片背景装饰 - 更自然的效果 */
+        .timeline-content::after {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -30%;
+            width: 160%;
+            height: 160%;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.03) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+
+        /* 悬停效果 - 轻柔的生活化动画 */
+        .timeline-content:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow:
+                0 15px 35px rgba(0, 0, 0, 0.12),
+                0 5px 15px rgba(0, 0, 0, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
+        }
+
+        .timeline-content:hover::after {
+            opacity: 1;
+        }
+
+        /* 内容样式 - 生活化博客风格 */
+        .timeline-content h4 {
+            color: #2d3748;
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            font-weight: 600;
+            line-height: 1.4;
+            letter-spacing: 0.2px;
+        }
+
+        .timeline-date {
+            color: #667eea;
+            font-weight: 500;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            display: inline-block;
+            background: rgba(102, 126, 234, 0.1);
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .timeline-date::before {
+            content: '📅';
+            margin-right: 6px;
+            font-size: 0.9rem;
+        }
+
+        .timeline-content p {
+            color: #4a5568;
+            line-height: 1.7;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            text-align: left;
+            position: relative;
+            background: rgba(248, 250, 252, 0.6);
+            border-radius: 10px;
+            padding: 12px;
+            border-left: 3px solid rgba(102, 126, 234, 0.4);
+        }
+
+        .timeline-content ul {
+            list-style: none;
+            padding-left: 0;
+            text-align: left;
+            margin-top: 15px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 12px;
+            padding: 15px;
+            flex-grow: 1;
+        }
+
+        .timeline-content li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            color: #4a5568;
+            line-height: 1.6;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border-radius: 6px;
+            padding: 6px 6px 6px 25px;
+        }
+
+        .timeline-content li::before {
+            content: '•';
+            position: absolute;
+            left: 8px;
+            top: 6px;
+            font-size: 1.2rem;
+            color: #667eea;
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-content li:hover {
+            color: #2d3748;
+            background: rgba(102, 126, 234, 0.06);
+            transform: translateX(3px);
+        }
+
+        .timeline-content li:hover::before {
+            transform: scale(1.2);
+            color: #764ba2;
+        }
+
+        /* 志愿服务网格样式优化 */
+        .volunteer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .volunteer-item {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .volunteer-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .volunteer-item i {
+            font-size: 3rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .volunteer-item h4 {
+            color: #2d3748;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .volunteer-item p {
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        /* 轮播图区域样式优化 */
+        .carousel-section {
+            margin: 60px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .carousel-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .carousel-container h3 {
+            text-align: center;
+            color: #2d3748;
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        /* 轮播图样式 */
+        .carousel {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .carousel-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .carousel-item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.6s ease-in-out;
+        }
+
+        .carousel-item.active {
+            opacity: 1;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            background: white;
+        }
+
+        .carousel-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #667eea;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .carousel-btn:hover {
+            background: white;
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .carousel-btn.prev {
+            left: 15px;
+        }
+
+        .carousel-btn.next {
+            right: 15px;
+        }
+
+        .carousel-indicators {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .indicator.active {
+            background: white;
+            border-color: #667eea;
+            transform: scale(1.2);
+        }
+
+        .indicator:hover {
+            background: rgba(255, 255, 255, 0.8);
+            transform: scale(1.1);
+        }
+
+        /* 响应式设计 - 横向平行时间轴 */
+        @media (max-width: 1024px) {
+            .timeline-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 40px;
+                padding: 0 5%;
+            }
+
+            .timeline-item {
+                max-width: 500px;
+                width: 100%;
+            }
+
+            /* 移除横向连接线，改为垂直连接 */
+            .timeline-item:not(:last-child)::after {
+                top: auto;
+                bottom: -20px;
+                right: auto;
+                left: 50%;
+                width: 3px;
+                height: 40px;
+                background: linear-gradient(180deg,
+                    rgba(102, 126, 234, 0.6) 0%,
+                    rgba(102, 126, 234, 0.8) 30%,
+                    rgba(118, 75, 162, 0.8) 70%,
+                    rgba(118, 75, 162, 0.6) 100%);
+                transform: translateX(-50%);
+            }
+
+            .timeline-item:not(:last-child)::before {
+                top: auto;
+                bottom: -25px;
+                right: auto;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .timeline {
+                padding: 40px 0;
+            }
+
+            .timeline-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 30px;
+                padding: 0 4%;
+            }
+
+            .timeline-item {
+                max-width: none;
+                width: 100%;
+            }
+
+            .timeline-content {
+                padding: 20px;
+                min-height: 250px;
+            }
+
+            .timeline-content h4 {
+                font-size: 1.2rem;
+            }
+
+            .timeline-content p {
+                font-size: 0.9rem;
+                padding: 10px;
+            }
+
+            .timeline-content li {
+                font-size: 0.85rem;
+                padding-left: 20px;
+            }
+
+            .timeline-date {
+                font-size: 0.9rem;
+                padding: 6px 12px;
+            }
+
+            /* 移动端连接线调整 */
+            .timeline-item:not(:last-child)::after {
+                height: 30px;
+                bottom: -15px;
+            }
+
+            .timeline-item:not(:last-child)::before {
+                bottom: -20px;
+            }
+
+            .carousel-section {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .volunteer-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .timeline {
+                padding: 30px 0;
+            }
+
+            .timeline-container {
+                gap: 25px;
+                padding: 0 3%;
+            }
+
+            .timeline-content {
+                padding: 18px;
+                border-radius: 15px;
+                min-height: 220px;
+            }
+
+            .timeline-content h4 {
+                font-size: 1.1rem;
+                margin-bottom: 10px;
+            }
+
+            .timeline-content p {
+                font-size: 0.85rem;
+                padding: 8px;
+                margin-bottom: 12px;
+            }
+
+            .timeline-content li {
+                font-size: 0.8rem;
+                padding-left: 18px;
+                margin-bottom: 8px;
+            }
+
+            .timeline-date {
+                font-size: 0.85rem;
+                padding: 5px 10px;
+                margin-bottom: 12px;
+            }
+
+            /* 小屏幕连接线调整 */
+            .timeline-item:not(:last-child)::after {
+                height: 25px;
+                bottom: -12px;
+                width: 2px;
+            }
+
+            .timeline-item:not(:last-child)::before {
+                bottom: -17px;
+                width: 6px;
+                height: 6px;
+            }
+        }
+
+        /* 页脚样式 */
+        footer {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        footer .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        footer p {
+            font-size: 1.1rem;
+            margin: 0;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        footer .footer-subtitle {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* 返回顶部按钮样式 */
+        #back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            display: none;
+        }
+
+        #back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        #back-to-top i {
+            font-size: 1.2rem;
+        }
+
+        /* 页面加载动画优化 */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* 滚动动画 */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 悬浮效果 */
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* 渐变文字效果 */
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* 毛玻璃效果增强 */
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        /* 阴影效果 */
+        .shadow-soft {
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+        }
+
+        .shadow-medium {
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .shadow-strong {
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        /* 3D轮播图样式 */
+        .carousel-3d-section {
+            margin-top: 40px;
+            padding: 40px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .carousel-3d-title {
+            text-align: center;
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .carousel-3d-container {
+            position: relative;
+            perspective: 1600px;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .carousel-3d {
+            width: 400px;
+            height: 250px;
+            position: absolute;
+            transform-style: preserve-3d;
+            animation: rotate3d 8s infinite cubic-bezier(.7,0,0.17,1);
+        }
+
+        .carousel-3d div {
+            position: absolute;
+            background-size: cover;
+            background-position: center;
+            opacity: .9;
+            width: 400px;
+            height: 250px;
+            transform: rotateY(calc(var(--i)*120deg)) translateZ(600px);
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            transition: opacity 0.3s ease;
+        }
+
+        .carousel-3d div:hover {
+            opacity: 1;
+        }
+
+        .carousel-3d-item1 {
+            background-image: url("./img/2.jpg");
+        }
+
+        .carousel-3d-item2 {
+            background-image: url("./img/海边.jpg");
+        }
+
+        .carousel-3d-item3 {
+            background-image: url("./img/照2.jpg");
+        }
+
+        @keyframes rotate3d {
+            0% {
+                transform: translateZ(-100px) rotateY(0);
+            }
+            33% {
+                transform: translateZ(-100px) rotateY(-120deg);
+            }
+            66% {
+                transform: translateZ(-100px) rotateY(-240deg);
+            }
+            100% {
+                transform: translateZ(-100px) rotateY(-360deg);
+            }
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .carousel-3d-container {
+                perspective: 1000px;
+                height: 300px;
+            }
+
+            .carousel-3d {
+                width: 300px;
+                height: 200px;
+            }
+
+            .carousel-3d div {
+                width: 300px;
+                height: 200px;
+                transform: rotateY(calc(var(--i)*120deg)) translateZ(400px);
+            }
+
+            .carousel-3d-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 页面加载动画 -->
+    <div class="loader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- 导航栏 -->
+    <nav class="modern-navbar">
+        <div class="nav-brand">
+            <a href="index.html" class="brand-link">
+                <i class="fas fa-graduation-cap"></i>
+                樊青青
+            </a>
+        </div>
+        <ul id="nav" class="nav-pills">
+            <li class="slide1"></li>
+            <li class="slide2"></li>
+            <li><a href="index.html#home">个人介绍</a></li>
+            <li><a href="education.html">教育背景</a></li>
+            <li><a href="school-experience.html" class="active">在校经历</a></li>
+            <li><a href="projects.html">项目经验</a></li>
+            <li><a href="contact.html">留言窗口</a></li>
+        </ul>
+    </nav>
+
+    <!-- 主要内容 -->
+    <main>
+        <!-- 在校经历 -->
+        <section id="school-experience" class="section">
+            <div class="container">
+                <h2 class="section-title fade-in">在校经历</h2>
+
+                <!-- 学生组织经历 -->
+                <div class="experience-category fade-in glass-effect shadow-medium">
+                    <h3 class="gradient-text">学生组织</h3>
+                    <div class="timeline">
+
+                        <div class="timeline-container">
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h4>茶艺社办公室主任</h4>
+                                    <p class="timeline-date">2020 - 2021</p>
+                                    <p>积极参与并组织了多项社团活动，推动了社团的日常运作与对外交流。在这段美好的时光里，我不仅学会了茶艺技能，更重要的是体会到了团队合作的力量。</p>
+                                    <ul>
+                                        <li>组织军训送温暖活动，为新生送去关怀</li>
+                                        <li>开展基础茶艺教学活动，帮助新社员掌握泡茶技艺、了解茶道精神</li>
+                                        <li>组织社员前往校外茶馆进行实地学习，拓展大家对茶文化的认知视野</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h4>院系学生会外联部干事</h4>
+                                    <p class="timeline-date">2023 - 2024</p>
+                                    <p>这一年是我成长最快的一年！协助策划并组织了校园吃货节、跳蚤市场等大型活动，每一次活动都是一次挑战，也是一次收获。</p>
+                                    <ul>
+                                        <li>负责物资筹备、场地协调及宣传推广工作</li>
+                                        <li>在忙碌的活动中提升了沟通能力和团队协作能力</li>
+                                        <li>协助其他部门进行活动的技术支持，学会了跨部门合作</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h4>校级组织：学生处助理</h4>
+                                <p class="timeline-date">2024 - 2025</p>
+                                <p>目前正在进行的工作让我更加深入地了解学校的运作机制。负责整理与审核各类奖助贷补申报材料，确保信息准确、流程规范，同时协助指导同学办理学务手续。</p>
+                                <ul>
+                                    <li>参与策划并执行了“行走中的一方茶席——毕业篇”毕业茶会活动，为毕业生送上温暖祝福，营造了温馨雅致的送别氛围。</li>
+                                    <li>此外，我还协助组织了“茶韵沁心 健康随行”主题茶会，通过品茗交流传播茶文化内涵。</li>
+
+                                </ul>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 照片轮播图区域 -->
+                <div class="carousel-section">
+                    <!-- 左侧轮播图 -->
+                    <div class="carousel-container left-carousel">
+                        <h3>学生组织活动照片</h3>
+                        <div class="carousel">
+                            <div class="carousel-inner" id="carousel1">
+                                <div class="carousel-item active">
+                                    <img src="img/合照.jpg" alt="校园吃货节活动现场" loading="lazy">
+                                    <div class="carousel-caption">校园吃货节活动现场</div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="img/1.jpg" alt="跳蚤市场组织工作" loading="lazy">
+                                    <div class="carousel-caption">跳蚤市场组织工作</div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="img/2.jpg" alt="学生会团队合影" loading="lazy">
+                                    <div class="carousel-caption">学生会团队合影</div>
+                                </div>
+                            </div>
+                            <button class="carousel-btn prev" onclick="prevSlide('carousel1')" aria-label="上一张图片">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="carousel-btn next" onclick="nextSlide('carousel1')" aria-label="下一张图片">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <div class="carousel-indicators">
+                                <span class="indicator active" onclick="currentSlide('carousel1', 1)" aria-label="第1张图片"></span>
+                                <span class="indicator" onclick="currentSlide('carousel1', 2)" aria-label="第2张图片"></span>
+                                <span class="indicator" onclick="currentSlide('carousel1', 3)" aria-label="第3张图片"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 右侧轮播图 -->
+                    <div class="carousel-container right-carousel">
+                        <h3>茶艺社活动照片</h3>
+                        <div class="carousel">
+                            <div class="carousel-inner" id="carousel2">
+                                <div class="carousel-item active">
+                                    <img src="img/照1.jpg" alt="毕业茶会活动" loading="lazy">
+                                    <div class="carousel-caption">毕业茶会活动</div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="img/照2.jpg" alt="茶韵沁心主题茶会" loading="lazy">
+                                    <div class="carousel-caption">茶韵沁心主题茶会</div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="img/照3.jpg" alt="茶艺教学活动" loading="lazy">
+                                    <div class="carousel-caption">茶艺教学活动</div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="img/海边.jpg" alt="校外茶馆学习" loading="lazy">
+                                    <div class="carousel-caption">校外茶馆学习</div>
+                                </div>
+                            </div>
+                            <button class="carousel-btn prev" onclick="prevSlide('carousel2')" aria-label="上一张图片">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="carousel-btn next" onclick="nextSlide('carousel2')" aria-label="下一张图片">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <div class="carousel-indicators">
+                                <span class="indicator active" onclick="currentSlide('carousel2', 1)" aria-label="第1张图片"></span>
+                                <span class="indicator" onclick="currentSlide('carousel2', 2)" aria-label="第2张图片"></span>
+                                <span class="indicator" onclick="currentSlide('carousel2', 3)" aria-label="第3张图片"></span>
+                                <span class="indicator" onclick="currentSlide('carousel2', 4)" aria-label="第4张图片"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 志愿服务 -->
+                <div class="experience-category fade-in glass-effect shadow-medium">
+                    <h3 class="gradient-text">志愿服务</h3>
+                    <div class="volunteer-grid">
+                        <div class="volunteer-item fade-in shadow-soft">
+                            <i class="fas fa-hands-helping floating"></i>
+                            <h4>第十二届少数民族传统体育运动会</h4>
+                            <p>主要负责秩序维护、引导参赛人员及观众，协助赛事顺利进行。期间积极沟通、团结协作，展现青年志愿者风采，为民族团结贡献青春力量。</p>
+                        </div>
+                        <div class="volunteer-item fade-in shadow-soft">
+                            <i class="fas fa-chalkboard-teacher floating"></i>
+                            <h4>茶香传情，文化共赏</h4>
+                            <p>为社区居民讲解茶叶知识，演示泡茶技艺，并邀请叔叔阿姨一同品茗交流，感受中华茶文化的独特魅力。活动气氛温馨融洽，不仅弘扬了传统文化，也拉近了青年与长者之间的情感距离，获得社区居民一致好评。</p>
+                        </div>
+                        <div class="volunteer-item fade-in shadow-soft">
+                            <i class="fas fa-laptop-code floating"></i>
+                            <h4>高考志愿服务</h4>
+                            <p>负责维护考场秩序、引导考生入场，为营造安静、有序的考试环境贡献力量，助力高考顺利进行。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3D轮播图展示 -->
+                <div class="carousel-3d-section">
+                    <h3 class="carousel-3d-title">精彩瞬间 3D 展示</h3>
+                    <div class="carousel-3d-container">
+                        <div class="carousel-3d">
+                            <div class="carousel-3d-item1" style="--i:0"></div>
+                            <div class="carousel-3d-item2" style="--i:1"></div>
+                            <div class="carousel-3d-item3" style="--i:2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 QingQing-Fan的个人简历. 保留所有权利.</p>
+            <div class="footer-subtitle">
+                <span>用心设计 · 精心制作</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button id="back-to-top" aria-label="返回顶部">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript 文件 -->
+    <script src="script.js"></script>
+
+    <!-- Header导航栏JavaScript -->
+    <script>
+        $(document).ready(function() {
+            // 页面加载完成后隐藏加载动画
+            setTimeout(function() {
+                $('.loader').fadeOut(500);
+            }, 1000);
+
+            // 导航栏交互
+            $("#nav a").on("click", function () {
+                var position = $(this).parent().position();
+                var width = $(this).parent().width();
+                $("#nav .slide1").css({ opacity: 1, left: +position.left, width: width });
+            });
+            $("#nav a").on("mouseover", function () {
+                var position = $(this).parent().position();
+                var width = $(this).parent().width();
+                $("#nav .slide2").css({ opacity: 1, left: +position.left, width: width }).addClass("squeeze");
+            });
+            $("#nav a").on("mouseout", function () {
+                $("#nav .slide2").css({ opacity: 0 }).removeClass("squeeze");
+            });
+
+            // 设置当前页面的活动状态（在校经历是第3个，索引为5，因为前面有slide1和slide2）
+            var currentWidth = $("#nav li:nth-of-type(5) a").parent("li").width();
+            var current = $("#nav li:nth-of-type(5) a").position();
+            $("#nav .slide1").css({ left: +current.left, width: currentWidth });
+
+            // 滚动动画
+            function checkScroll() {
+                $('.fade-in').each(function() {
+                    var elementTop = $(this).offset().top;
+                    var elementBottom = elementTop + $(this).outerHeight();
+                    var viewportTop = $(window).scrollTop();
+                    var viewportBottom = viewportTop + $(window).height();
+
+                    if (elementBottom > viewportTop && elementTop < viewportBottom) {
+                        $(this).addClass('visible');
+                    }
+                });
+            }
+
+            // 初始检查
+            checkScroll();
+
+            // 滚动时检查
+            $(window).scroll(function() {
+                checkScroll();
+
+                // 返回顶部按钮显示/隐藏
+                if ($(this).scrollTop() > 300) {
+                    $('#back-to-top').fadeIn();
+                } else {
+                    $('#back-to-top').fadeOut();
+                }
+            });
+
+            // 返回顶部功能
+            $('#back-to-top').click(function() {
+                $('html, body').animate({scrollTop: 0}, 800);
+                return false;
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         *{
+            margin: 0;
+            padding: 0;
+         }
+
+         body{
+            height: 1500px;
+         }
+
+         .shell{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+         }
+
+         header{
+            height: 700px;
+            width: 100%;
+            overflow: hidden;
+            clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
+            transition: clip-path 0.5s ease;
+         }
+
+         .img{
+            width: 100%;
+            height: 100%;
+            background: url('./img/1\ -\ 副本.jpg');
+            background-size: cover;
+            transform: scale(1);
+            transition: transform 0.5s ease;
+         }
+
+         .main{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            margin-top: 100px;
+            align-items: center;
+         }
+
+         .main h2{
+            font-size: 50px;
+            margin-bottom: 40px;
+         }
+
+         .main img{
+            width: 50%;
+         }
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <header>
+            <div class="img"></div>
+        </header>
+        <div class="main">
+            <h2>QQ's 个人简历</h2>
+            <img src="./img/1.jpg" alt="">
+        </div>
+    </div>
+</body>
+
+<script> 
+    const header = document.querySelector('header');
+        const img = document.querySelector('.img');
+        let scrollDistance = 0;
+        let requestId = null;
+        function updateHeaderClipPath() {
+            const clipPathValue = `polygon(0 0, 100% 0%, 100% ${(scrollDistance <= 600) ? 100 - ((scrollDistance / 600) * 60) : 75}%, 0 100%)`;
+            header.style.clipPath = clipPathValue;
+            const scaleValue = 1 + ((scrollDistance / 600) * 1);
+            img.style.transform = `scale(${scaleValue})`;
+            const opacityValue = (scrollDistance / 600);
+        }
+        function scrollHandler(event) {
+            if (event.deltaY < 0) {
+                scrollDistance = Math.max(0, scrollDistance + event.deltaY);
+            } else {
+                scrollDistance = Math.min(600, scrollDistance + event.deltaY);
+            }
+            if (!requestId) {
+                requestId = window.requestAnimationFrame(() => {
+                    updateHeaderClipPath();
+                    requestId = null;
+                });
+            }
+        }
+        window.addEventListener('wheel', scrollHandler);
+</script>
+</html>

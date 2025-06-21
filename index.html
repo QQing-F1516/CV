@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人简历 - 樊青青</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- 优化后的首页样式 -->
+    <style>
+        /* 首页主容器 */
+        .index2-shell{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* 英雄区域头部 */
+        .index2-header{
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0%, 100% 85%, 0 100%);
+            transition: clip-path 0.5s ease;
+        }
+
+        /* 背景图片 */
+        .index2-img{
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.1)), url('./img/1\ -\ 副本.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            transform: scale(1);
+            transition: transform 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* 英雄区域内容 */
+        .hero-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            z-index: 10;
+        }
+
+        .hero-overlay h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-overlay p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .hero-cta {
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        /* 主要内容区域 */
+        .index2-main{
+            width: 100%;
+            padding: 80px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            position: relative;
+        }
+
+        .index2-main h2{
+            font-size: 3.5rem;
+            margin-bottom: 40px;
+            color: #4a6cf7;
+            text-align: center;
+            position: relative;
+        }
+
+        .index2-main h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #4a6cf7, #667eea);
+            border-radius: 2px;
+        }
+
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 优化后的导航栏样式 */
+        #nav {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            border: none;
+            border-radius: 50px;
+            display: flex;
+            list-style: none;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            padding: 8px;
+            transition: all 0.3s ease;
+        }
+
+        #nav:hover {
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            transform: translateX(-50%) translateY(-2px);
+        }
+
+        #nav li a {
+            position: relative;
+            padding: 12px 30px;
+            font: 500 16px 'Segoe UI', sans-serif;
+            border: none;
+            outline: none;
+            color: #4a6cf7;
+            display: inline-block;
+            text-decoration: none;
+            z-index: 3;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        #nav li a:hover {
+            color: white;
+        }
+
+        .slide1,
+        .slide2 {
+            position: absolute;
+            display: inline-block;
+            height: 40px;
+            border-radius: 25px;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1.05);
+        }
+
+        .slide1 {
+            background: linear-gradient(135deg, #4a6cf7 0%, #667eea 100%);
+            z-index: 2;
+            box-shadow: 0 4px 15px rgba(74, 108, 247, 0.3);
+        }
+
+        .slide2 {
+            opacity: 0;
+            background: linear-gradient(135deg, rgba(74, 108, 247, 0.8) 0%, rgba(102, 126, 234, 0.8) 100%);
+            z-index: 1;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5) inset;
+        }
+
+        .squeeze {
+            transform: scale(0.95);
+        }
+
+        /* 响应式导航栏 */
+        @media (max-width: 768px) {
+            #nav {
+                top: 10px;
+                padding: 6px;
+            }
+
+            #nav li a {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+
+            .slide1, .slide2 {
+                height: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 页面加载动画 -->
+    <div class="loader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- 优化后的首页内容 -->
+    <div class="index2-shell">
+        <div class="index2-header">
+            <div class="index2-img">
+                <div class="hero-overlay">
+                    <h1>樊青青</h1>
+                    <p>Web前端开发工程师 | 创意与技术的完美融合</p>
+                    <div class="hero-cta">
+                        <a href="#home" class="btn primary">了解更多</a>
+                        <a href="#projects" class="btn secondary">查看作品</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="index2-main">
+            <h2>个人简历展示</h2>
+            <p style="font-size: 1.2rem; color: #666; text-align: center; max-width: 600px; margin: 0 auto;">
+                欢迎来到我的个人简历网站，在这里您可以了解我的教育背景、项目经验和专业技能
+            </p>
+        </div>
+    </div>
+
+    <!-- 导航栏 -->
+    <!-- <nav class="modern-navbar"> -->
+        <div class="nav-brand"></div>
+        <ul id="nav" class="nav-pills">
+            <li class="slide1"></li>
+            <li class="slide2"></li>
+            <li><a href="index.html#home" class="active">个人介绍</a></li>
+            <li><a href="education.html">教育背景</a></li>
+            <li><a href="school-experience.html">在校经历</a></li>
+            <li><a href="projects.html">项目经验</a></li>
+            <li><a href="contact.html">留言窗口</a></li>
+        </ul>
+    <!-- </nav> -->
+
+    <!-- 主要内容 -->
+    <main>
+        <!-- 个人介绍区域 -->
+        <section id="home" class="section modern-section">
+            <div class="container">
+                <div class="hero modern-hero">
+                    <div class="hero-content">
+                        <div class="intro-badge">
+                            <span>👋 Hello, I'm</span>
+                        </div>
+                        <h1 class="gradient-text">樊青青</h1>
+                        <h2 class="subtitle">Web前端开发工程师</h2>
+
+                        <div class="about-cards">
+                            <div class="about-card">
+                                <div class="card-icon">📚</div>
+                                <h3>学习背景</h3>
+                                <p>工科大二在读，主攻Web前端开发，熟练掌握HTML/CSS/JavaScript，对React/Vue框架有实践探索</p>
+                            </div>
+
+                            <div class="about-card">
+                                <div class="card-icon">💻</div>
+                                <h3>技术热情</h3>
+                                <p>喜欢学习新技能，尝试新项目，分享知识，与志同道合的人一起工作</p>
+                            </div>
+
+                            <div class="about-card">
+                                <div class="card-icon">🎧</div>
+                                <h3>兴趣爱好</h3>
+                                <p>音乐重度爱好者，小说忠实读者，认为编程与创作同样需要天马行空的想象力</p>
+                            </div>
+
+                            <div class="about-card">
+                                <div class="card-icon">🌙</div>
+                                <h3>生活理念</h3>
+                                <p>信奉"高效工作，优质休息"，期待用技术连接世界，用热爱点亮生活</p>
+                            </div>
+                        </div>
+
+                        <div class="cta-buttons">
+                            <a href="contact.html" class="btn primary">
+                                <i class="fas fa-envelope"></i>
+                                联系我
+                            </a>
+                            <a href="projects.html" class="btn secondary">
+                                <i class="fas fa-code"></i>
+                                查看作品
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="hero-image">
+                        <div class="image-container">
+                            <img src="./img/白到底证件照.jpg" alt="樊青青的照片">
+                            <div class="image-decoration"></div>
+                        </div>
+                        <div class="floating-elements">
+                            <div class="floating-element" style="--delay: 0s">💻</div>
+                            <div class="floating-element" style="--delay: 1s">🎨</div>
+                            <div class="floating-element" style="--delay: 2s">⚡</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 三个轮播图组件 -->
+    <section class="carousel-gallery-section">
+        <div class="container">
+            <div class="gallery-header">
+                <h2 class="section-title gallery-title">
+                    <span class="title-icon">✨</span>
+                    精彩瞬间
+                    <span class="title-icon">✨</span>
+                </h2>
+                <p class="gallery-subtitle">记录生活中的美好时光，分享成长路上的点点滴滴</p>
+            </div>
+            <div class="carousel-gallery">
+                <!-- 左侧轮播图 - 生活照片 -->
+                <div class="carousel-container">
+                    <h3>生活点滴</h3>
+                    <div class="carousel" id="carousel-life">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="./img/日出.jpg" alt="日出美景">
+                                <div class="carousel-caption">清晨的第一缕阳光</div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="./img/海边.jpg" alt="海边风景">
+                                <div class="carousel-caption">海边的宁静时光</div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="./img/夕阳.jpg" alt="夕阳西下">
+                                <div class="carousel-caption">夕阳西下的美好</div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="./img/美食.jpg" alt="美食分享">
+                                <div class="carousel-caption">美食与生活的艺术</div>
+                            </div>
+                        </div>
+                        <button class="carousel-btn prev" onclick="prevSlide('carousel-life')">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-btn next" onclick="nextSlide('carousel-life')">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                        <div class="carousel-indicators">
+                            <span class="indicator active" onclick="currentSlide('carousel-life', 1)"></span>
+                            <span class="indicator" onclick="currentSlide('carousel-life', 2)"></span>
+                            <span class="indicator" onclick="currentSlide('carousel-life', 3)"></span>
+                            <span class="indicator" onclick="currentSlide('carousel-life', 4)"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 中间轮播图 - 学习成长 -->
+                <div class="carousel-container">
+                    <h3>学习成长</h3>
+                    <div class="carousel" id="carousel-study">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="./img/初一.jpg" alt="学习时光">
+                                <div class="carousel-caption">求学路上的坚持</div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="./img/合照.jpg" alt="同学合影">
+                                <div class="carousel-caption">与同窗好友的美好回忆</div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="./img/照1.jpg" alt="校园生活">
+                                <div class="carousel-caption">充实的校园生活</div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="./img/照2.jpg" alt="学习成果">
+                                <div class="carousel-caption">收获知识的喜悦</div>
+                            </div>
+                        </div>
+                        <button class="carousel-btn prev" onclick="prevSlide('carousel-study')">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-btn next" onclick="nextSlide('carousel-study')">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                        <div class="carousel-indicators">
+                            <span class="indicator active" onclick="currentSlide('carousel-study', 1)"></span>
+                            <span class="indicator" onclick="currentSlide('carousel-study', 2)"></span>
+                            <span class="indicator" onclick="currentSlide('carousel-study', 3)"></span>
+                            <span class="indicator" onclick="currentSlide('carousel-study', 4)"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 右侧轮播图 - 兴趣爱好 -->
+                <div class="carousel-container">
+                    <h3>兴趣爱好</h3>
+                    <div class="carousel" id="carousel-hobby">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="./img/小熊.jpg" alt="收藏爱好">
+                                <div class="carousel-caption">收藏的小确幸</div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="./img/跨年.jpg" alt="节日庆祝">
+                                <div class="carousel-caption">跨年的美好时刻</div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="./img/照3.jpg" alt="休闲时光">
+                                <div class="carousel-caption">享受休闲的午后</div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="./img/1.jpg" alt="兴趣展示">
+                                <div class="carousel-caption">多彩的兴趣生活</div>
+                            </div>
+                        </div>
+                        <button class="carousel-btn prev" onclick="prevSlide('carousel-hobby')">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-btn next" onclick="nextSlide('carousel-hobby')">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                        <div class="carousel-indicators">
+                            <span class="indicator active" onclick="currentSlide('carousel-hobby', 1)"></span>
+                            <span class="indicator" onclick="currentSlide('carousel-hobby', 2)"></span>
+                            <span class="indicator" onclick="currentSlide('carousel-hobby', 3)"></span>
+                            <span class="indicator" onclick="currentSlide('carousel-hobby', 4)"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 QingQing-Fan的个人简历. 保留所有权利.</p>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button id="back-to-top" aria-label="返回顶部">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript 文件 -->
+    <script src="script.js"></script>
+
+    <!-- 导航栏JavaScript - 来自header.html -->
+    <script>
+        $(document).ready(function() {
+            $("#nav a").on("click", function () {
+                var position = $(this).parent().position();
+                var width = $(this).parent().width();
+                $("#nav .slide1").css({ opacity: 1, left: +position.left, width: width });
+            });
+            $("#nav a").on("mouseover", function () {
+                var position = $(this).parent().position();
+                var width = $(this).parent().width();
+                $("#nav .slide2").css({ opacity: 1, left: +position.left, width: width }).addClass("squeeze");
+            });
+            $("#nav a").on("mouseout", function () {
+                $("#nav .slide2").css({ opacity: 0 }).removeClass("squeeze");
+            });
+            var currentWidth = $("#nav li:nth-of-type(3) a").parent("li").width();
+            var current = $("li:nth-of-type(3) a").position();
+            $("#nav .slide1").css({ left: +current.left, width: currentWidth });
+        });
+    </script>
+
+    <!-- 来自index2.html的JavaScript -->
+    <script>
+        const index2Header = document.querySelector('.index2-header');
+        const index2Img = document.querySelector('.index2-img');
+        let scrollDistance = 0;
+        let requestId = null;
+
+        function updateHeaderClipPath() {
+            const clipPathValue = `polygon(0 0, 100% 0%, 100% ${(scrollDistance <= 600) ? 100 - ((scrollDistance / 600) * 60) : 75}%, 0 100%)`;
+            index2Header.style.clipPath = clipPathValue;
+            const scaleValue = 1 + ((scrollDistance / 600) * 1);
+            index2Img.style.transform = `scale(${scaleValue})`;
+            const opacityValue = (scrollDistance / 600);
+        }
+
+        function scrollHandler(event) {
+            if (event.deltaY < 0) {
+                scrollDistance = Math.max(0, scrollDistance + event.deltaY);
+            } else {
+                scrollDistance = Math.min(600, scrollDistance + event.deltaY);
+            }
+            if (!requestId) {
+                requestId = window.requestAnimationFrame(() => {
+                    updateHeaderClipPath();
+                    requestId = null;
+                });
+            }
+        }
+
+        window.addEventListener('wheel', scrollHandler);
+    </script>
+</body>
+</html>
