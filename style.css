@@ -1399,40 +1399,211 @@ main {
 
 
 
-/* 左右布局轮播图样式 */
+/* 自然美观的轮播图样式 - 个人博客风格 */
 .carousel-section {
     display: flex;
-    gap: 30px;
-    margin: 40px 0;
+    gap: 40px;
+    margin: 50px 0;
     align-items: flex-start;
-    min-height: 400px;
-    background-color: white;
+    min-height: 450px;
+    background: linear-gradient(135deg,
+        rgba(255, 255, 255, 0.95) 0%,
+        rgba(248, 250, 252, 0.9) 100%);
+    border-radius: 25px;
+    padding: 35px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.08),
+        0 8px 30px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+/* 轮播图区域装饰背景 */
+.carousel-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle,
+        rgba(102, 126, 234, 0.03) 0%,
+        rgba(118, 75, 162, 0.02) 30%,
+        transparent 60%);
+    animation: rotateBackground 15s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes rotateBackground {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 轮播图容器入场动画 */
+.carousel-section .carousel-container {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: carouselFadeIn 1s ease-out forwards;
+}
+
+.left-carousel {
+    animation-delay: 0.2s;
+}
+
+.right-carousel {
+    animation-delay: 0.4s;
+}
+
+@keyframes carouselFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* 轮播图图片切换时的微妙效果 */
+.carousel-item {
+    transform: scale(1);
+}
+
+.carousel-item.active {
+    animation: imageSlideIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes imageSlideIn {
+    0% {
+        opacity: 0;
+        transform: scale(1.05);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 .carousel-container {
     flex: 1;
-    max-width: 130%;
+    max-width: 50%;
     position: relative;
-    background-color: white;
-    min-height: 350px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 25px;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.06),
+        0 5px 15px rgba(0, 0, 0, 0.04);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    min-height: 380px;
+}
+
+.carousel-container:hover {
+    transform: translateY(-8px);
+    box-shadow:
+        0 25px 50px rgba(0, 0, 0, 0.1),
+        0 10px 25px rgba(102, 126, 234, 0.08);
+    background: rgba(255, 255, 255, 0.95);
 }
 
 .carousel-container h3 {
     text-align: center;
-    margin-bottom: 20px;
-    color: var(--primary-color);
-    font-size: 1.3rem;
-    font-weight: 600;
+    margin-bottom: 25px;
+    color: #2d3748;
+    font-size: 1.4rem;
+    font-weight: 700;
+    position: relative;
+    letter-spacing: 0.3px;
+    background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.carousel-container h3::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 3px;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    border-radius: 2px;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.carousel-container:hover h3::after {
+    opacity: 1;
+    width: 60px;
+}
+
+/* 轮播图容器装饰效果 */
+.carousel-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle,
+        rgba(102, 126, 234, 0.1) 0%,
+        transparent 70%);
+    border-radius: 50%;
+    transform: translate(20px, -20px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.carousel-container:hover::before {
+    transform: translate(15px, -15px) scale(1.2);
+    background: radial-gradient(circle,
+        rgba(102, 126, 234, 0.15) 0%,
+        transparent 70%);
+}
+
+/* 为左右轮播图添加不同的装饰色彩 */
+.left-carousel::before {
+    background: radial-gradient(circle,
+        rgba(255, 107, 107, 0.1) 0%,
+        transparent 70%);
+}
+
+.left-carousel:hover::before {
+    background: radial-gradient(circle,
+        rgba(255, 107, 107, 0.15) 0%,
+        transparent 70%);
+}
+
+.right-carousel::before {
+    background: radial-gradient(circle,
+        rgba(78, 205, 196, 0.1) 0%,
+        transparent 70%);
+}
+
+.right-carousel:hover::before {
+    background: radial-gradient(circle,
+        rgba(78, 205, 196, 0.15) 0%,
+        transparent 70%);
 }
 
 .carousel-container .carousel {
     max-width: 100%;
-    height: 300px;
+    height: 280px;
     position: relative;
-    background-color: #f8f9fa;
-    border-radius: 10px;
+    background: #ffffff;
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.8);
 }
 
 .carousel-inner {
@@ -1440,7 +1611,7 @@ main {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    border-radius: 10px;
+    border-radius: 16px;
 }
 
 .carousel-item {
@@ -1450,7 +1621,7 @@ main {
     width: 100%;
     height: 100%;
     opacity: 0;
-    transition: opacity 0.6s ease-in-out;
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     z-index: 1;
 }
 
@@ -1463,77 +1634,116 @@ main {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 16px;
     display: block;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    filter: brightness(1) contrast(1.02) saturate(1.05);
+}
+
+.carousel-container:hover .carousel-item.active img {
+    transform: scale(1.05);
+    filter: brightness(1.02) contrast(1.05) saturate(1.1);
 }
 
 .carousel-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(255, 255, 255, 0.8);
-    color: var(--primary-color);
+    background: rgba(255, 255, 255, 0.95);
+    color: #667eea;
     border: none;
-    width: 35px;
-    height: 35px;
     border-radius: 50%;
+    width: 45px;
+    height: 45px;
     cursor: pointer;
-    transition: var(--transition);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.9rem;
+    font-size: 1rem;
     z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.carousel-container:hover .carousel-btn {
+    opacity: 1;
+    visibility: visible;
 }
 
 .carousel-btn:hover {
-    background-color: rgba(255, 255, 255, 0.95);
-    transform: translateY(-50%) scale(1.1);
+    background: #ffffff;
+    transform: translateY(-50%) scale(1.15);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    color: #764ba2;
 }
 
 .carousel-btn.prev {
-    left: 10px;
+    left: 15px;
 }
 
 .carousel-btn.next {
-    right: 10px;
+    right: 15px;
 }
 
 .carousel-container .carousel-indicators {
     position: absolute;
-    bottom: 15px;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 8px;
+    gap: 12px;
     z-index: 10;
 }
 
 .carousel-container .indicator {
-    width: 10px;
-    height: 10px;
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.7);
     cursor: pointer;
-    transition: var(--transition);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border: 2px solid transparent;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
 }
 
 .carousel-container .indicator.active {
-    background-color: white;
+    background: #ffffff;
+    transform: scale(1.3);
+    border-color: #667eea;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.carousel-container .indicator:hover {
+    background: rgba(255, 255, 255, 0.9);
     transform: scale(1.2);
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
 }
 
 .carousel-caption {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 100%;
-    padding: 15px;
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    right: 0;
+    padding: 20px 25px;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.75));
     color: white;
     text-align: center;
-    font-size: 0.9rem;
-    font-weight: 500;
+    font-size: 1rem;
+    font-weight: 600;
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    backdrop-filter: blur(5px);
+    letter-spacing: 0.3px;
+    border-radius: 0 0 16px 16px;
+}
+
+.carousel-container:hover .carousel-caption {
+    transform: translateY(0);
 }
 
 /* 三个轮播图画廊样式 - 优化版本 */
@@ -1830,16 +2040,73 @@ main {
 @media (max-width: 768px) {
     .carousel-section {
         flex-direction: column;
-        gap: 20px;
+        gap: 25px;
+        padding: 25px;
+        border-radius: 20px;
+        margin: 40px 0;
     }
 
     .carousel-container {
         max-width: 100%;
+        padding: 20px;
+        border-radius: 16px;
+        min-height: 320px;
+    }
+
+    .carousel-container h3 {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
     }
 
     .carousel-container .carousel {
-        height: 250px;
+        height: 220px;
+        border-radius: 12px;
     }
+
+    .carousel-inner {
+        border-radius: 12px;
+    }
+
+    .carousel-item img {
+        border-radius: 12px;
+    }
+
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 0.9rem;
+    }
+
+    .carousel-btn.prev {
+        left: 12px;
+    }
+
+    .carousel-btn.next {
+        right: 12px;
+    }
+
+    .carousel-container .indicator {
+        width: 10px;
+        height: 10px;
+    }
+
+    .carousel-caption {
+        padding: 15px 20px;
+        font-size: 0.9rem;
+        border-radius: 0 0 12px 12px;
+    }
+
+    /* 移动端轮播图装饰效果调整 */
+    .carousel-container::before {
+        width: 60px;
+        height: 60px;
+        transform: translate(15px, -15px);
+    }
+
+    .carousel-container:hover::before {
+        transform: translate(10px, -10px) scale(1.1);
+    }
+}
 
     .carousel-gallery {
         grid-template-columns: 1fr;
