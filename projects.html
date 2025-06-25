@@ -6,8 +6,8 @@
     <title>项目经验 - 樊青青</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" onerror="console.error('Chart.js 主CDN加载失败，尝试备用CDN'); this.onerror=null; this.src='https://unpkg.com/chart.js'"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" onerror="console.error('jQuery 主CDN加载失败，尝试备用CDN'); this.onerror=null; this.src='https://code.jquery.com/jquery-3.4.1.min.js'"></script>
     <style>
         /* Header导航栏样式 */
         .header-nav {
@@ -198,15 +198,15 @@
         }
 
         .carousel-3d-item1 {
-            background-image: url("./img/2.jpg");
+            background-image: url("./img/项目1.jpg");
         }
 
         .carousel-3d-item2 {
-            background-image: url("./img/海边.jpg");
+            background-image: url("./img/项目2.jpg");
         }
 
         .carousel-3d-item3 {
-            background-image: url("./img/照2.jpg");
+            background-image: url("./img/项目3.jpg");
         }
 
         @keyframes move {
@@ -1257,7 +1257,7 @@
                                             <span class="skill-icon js"></span>
                                             JavaScript
                                         </div>
-                                        <div class="skill-percentage" data-percentage="85">80%</div>
+                                        <div class="skill-percentage" data-percentage="85">85%</div>
                                     </div>
                                     <div class="progress-bar-container">
                                         <div class="progress-bar js" data-width="85"></div>
@@ -1269,7 +1269,7 @@
                                             <span class="skill-icon react"></span>
                                             React
                                         </div>
-                                        <div class="skill-percentage" data-percentage="80">0%</div>
+                                        <div class="skill-percentage" data-percentage="80">80%</div>
                                     </div>
                                     <div class="progress-bar-container">
                                         <div class="progress-bar react" data-width="80"></div>
@@ -1285,7 +1285,7 @@
                                             <span class="skill-icon vue"></span>
                                             Vue.js
                                         </div>
-                                        <div class="skill-percentage" data-percentage="75">15%</div>
+                                        <div class="skill-percentage" data-percentage="75">75%</div>
                                     </div>
                                     <div class="progress-bar-container">
                                         <div class="progress-bar vue" data-width="75"></div>
@@ -1297,7 +1297,7 @@
                                             <span class="skill-icon node"></span>
                                             Node.js
                                         </div>
-                                        <div class="skill-percentage" data-percentage="75">15%</div>
+                                        <div class="skill-percentage" data-percentage="75">75%</div>
                                     </div>
                                     <div class="progress-bar-container">
                                         <div class="progress-bar node" data-width="75"></div>
@@ -1309,7 +1309,7 @@
                                             <span class="skill-icon python"></span>
                                             Python
                                         </div>
-                                        <div class="skill-percentage" data-percentage="70">60%</div>
+                                        <div class="skill-percentage" data-percentage="70">70%</div>
                                     </div>
                                     <div class="progress-bar-container">
                                         <div class="progress-bar python" data-width="70"></div>
@@ -1387,7 +1387,7 @@
                             <div class="project-status">已完成</div>
                         </div>
                         <div class="card-image">
-                            <img src="./img/3.jpg" alt="电商网站重构">
+                            <img src="./img/项目1.jpg" alt="电商网站重构">
                             <div class="image-overlay">
                                 <div class="overlay-content">
                                     <i class="fas fa-external-link-alt"></i>
@@ -1396,27 +1396,26 @@
                             </div>
                         </div>
                         <div class="card-content">
-                            <div class="project-category">全栈开发</div>
-                            <h3>电商网站重构</h3>
-                            <p>使用React和Node.js构建的现代化全栈电商平台，包含用户管理、商品展示、购物车、订单管理等完整功能模块</p>
+                            <div class="project-category">静态页面开发</div>
+                            <h3>小米网站重构</h3>
+                            <p>使用css、js以及html构建的现代化全栈电商平台，包含用户管理、商品展示、购物车、订单管理等完整功能模块</p>
                             <div class="project-stats">
                                 <div class="stat">
-                                    <span class="stat-number">3</span>
+                                    <span class="stat-number" data-count="1">0</span>
                                     <span class="stat-label">个月</span>
                                 </div>
                                 <div class="stat">
-                                    <span class="stat-number">5</span>
+                                    <span class="stat-number" data-count="7">0</span>
                                     <span class="stat-label">人团队</span>
                                 </div>
                                 <div class="stat">
-                                    <span class="stat-number">95%</span>
+                                    <span class="stat-number" data-count="100" data-suffix="%">0</span>
                                     <span class="stat-label">完成度</span>
                                 </div>
                             </div>
                             <div class="card-tags">
-                                <span class="tag-react">React</span>
+                                <span class="tag-react">css</span>
                                 <span class="tag-node">Node.js</span>
-                                <span class="tag-db">MongoDB</span>
                             </div>
                             <div class="card-actions">
                                 <a href="#" class="btn-primary">查看详情</a>
@@ -1433,7 +1432,7 @@
                             <div class="project-status">已完成</div>
                         </div>
                         <div class="card-image">
-                            <img src="./img/4.jpg" alt="个人博客系统">
+                            <img src="./img/项目2.jpg" alt="个人博客式简历">
                             <div class="image-overlay">
                                 <div class="overlay-content">
                                     <i class="fas fa-external-link-alt"></i>
@@ -1444,25 +1443,24 @@
                         <div class="card-content">
                             <div class="project-category">前端开发</div>
                             <h3>个人博客系统</h3>
-                            <p>基于Vue.js和Express的现代化个人博客平台，支持文章发布、评论互动、标签分类等丰富功能</p>
+                            <p>基于Vue.js和css的现代化个人博客式简历</p>
                             <div class="project-stats">
                                 <div class="stat">
-                                    <span class="stat-number">2</span>
+                                    <span class="stat-number" data-count="1">0</span>
                                     <span class="stat-label">个月</span>
                                 </div>
                                 <div class="stat">
-                                    <span class="stat-number">1</span>
+                                    <span class="stat-number" data-count="1">0</span>
                                     <span class="stat-label">人开发</span>
                                 </div>
                                 <div class="stat">
-                                    <span class="stat-number">100%</span>
+                                    <span class="stat-number" data-count="100" data-suffix="%">0</span>
                                     <span class="stat-label">完成度</span>
                                 </div>
                             </div>
                             <div class="card-tags">
                                 <span class="tag-vue">Vue.js</span>
-                                <span class="tag-express">Express</span>
-                                <span class="tag-db">MySQL</span>
+                                <span class="tag-express">css</span>
                             </div>
                             <div class="card-actions">
                                 <a href="#" class="btn-primary">查看详情</a>
@@ -1476,10 +1474,10 @@
                     <div class="project-card" data-aos="fade-up" data-aos-delay="300">
                         <div class="card-header">
                             <div class="project-number">03</div>
-                            <div class="project-status">进行中</div>
+                            <div class="project-status">已完成</div>
                         </div>
                         <div class="card-image">
-                            <img src="./img/5.jpg" alt="任务管理应用">
+                            <img src="./img/项目3.jpg" alt="网页智能聊天机器人">
                             <div class="image-overlay">
                                 <div class="overlay-content">
                                     <i class="fas fa-external-link-alt"></i>
@@ -1488,27 +1486,25 @@
                             </div>
                         </div>
                         <div class="card-content">
-                            <div class="project-category">移动开发</div>
+                            <div class="project-category">后端开发</div>
                             <h3>任务管理应用</h3>
-                            <p>使用React Native开发的跨平台移动端任务管理应用，支持任务创建、分类管理、智能提醒等功能</p>
+                            <p>使用后端开发的跨平台移动端任务管理应用，支持搜索、提问等功能</p>
                             <div class="project-stats">
                                 <div class="stat">
-                                    <span class="stat-number">4</span>
-                                    <span class="stat-label">个月</span>
+                                    <span class="stat-number" data-count="1">0</span>
+                                    <span class="stat-label">星期</span>
                                 </div>
                                 <div class="stat">
-                                    <span class="stat-number">2</span>
+                                    <span class="stat-number" data-count="2">0</span>
                                     <span class="stat-label">人团队</span>
                                 </div>
                                 <div class="stat">
-                                    <span class="stat-number">80%</span>
+                                    <span class="stat-number" data-count="100" data-suffix="%">0</span>
                                     <span class="stat-label">完成度</span>
                                 </div>
                             </div>
                             <div class="card-tags">
-                                <span class="tag-rn">React Native</span>
-                                <span class="tag-redux">Redux</span>
-                                <span class="tag-db">SQLite</span>
+                                <span class="tag-rn">后端开发</span>
                             </div>
                             <div class="card-actions">
                                 <a href="#" class="btn-primary">查看详情</a>
@@ -1538,15 +1534,15 @@
                             <p>使用React Native开发的跨平台移动端任务管理应用，支持任务创建、分类管理、智能提醒等功能</p>
                             <div class="project-stats">
                                 <div class="stat">
-                                    <span class="stat-number">2</span>
+                                    <span class="stat-number" data-count="2">0</span>
                                     <span class="stat-label">个月</span>
                                 </div>
                                 <div class="stat">
-                                    <span class="stat-number">2</span>
+                                    <span class="stat-number" data-count="2">0</span>
                                     <span class="stat-label">人团队</span>
                                 </div>
                                 <div class="stat">
-                                    <span class="stat-number">90%</span>
+                                    <span class="stat-number" data-count="5" data-suffix="%">0</span>
                                     <span class="stat-label">完成度</span>
                                 </div>
                             </div>
@@ -1581,11 +1577,108 @@
     </button>
 
     <!-- JavaScript 文件 -->
-    <script src="script.js"></script>
+    <!-- <script src="script.js"></script> --> <!-- 暂时禁用以避免冲突 -->
+
+    <!-- 全局错误处理 -->
+    <script>
+        // 全局错误处理器
+        window.addEventListener('error', function(e) {
+            console.error('JavaScript 错误:', e.error);
+            console.error('错误位置:', e.filename, '行:', e.lineno, '列:', e.colno);
+        });
+
+        // 未处理的Promise拒绝
+        window.addEventListener('unhandledrejection', function(e) {
+            console.error('未处理的Promise拒绝:', e.reason);
+        });
+    </script>
 
     <!-- Header导航栏JavaScript -->
     <script>
-        $(document).ready(function() {
+        // 确保jQuery已加载
+        function waitForJQuery(callback, maxAttempts = 50) {
+            if (typeof $ !== 'undefined') {
+                console.log('jQuery已加载成功');
+                callback();
+            } else if (maxAttempts > 0) {
+                console.log('等待jQuery加载...剩余尝试次数:', maxAttempts);
+                setTimeout(() => waitForJQuery(callback, maxAttempts - 1), 100);
+            } else {
+                console.error('jQuery加载超时，使用备用方案');
+                // 使用纯JavaScript备用方案
+                useFallbackMethods();
+            }
+        }
+
+        // 备用的纯JavaScript方法
+        function useFallbackMethods() {
+            console.log('使用纯JavaScript备用方案');
+
+            // 备用导航栏初始化
+            const navLinks = document.querySelectorAll('#nav a');
+            const slide1 = document.querySelector('#nav .slide1');
+            const slide2 = document.querySelector('#nav .slide2');
+
+            if (navLinks.length > 0 && slide1) {
+                navLinks.forEach((link, index) => {
+                    link.addEventListener('click', function() {
+                        const rect = this.parentElement.getBoundingClientRect();
+                        const parentRect = this.parentElement.parentElement.getBoundingClientRect();
+                        slide1.style.left = (rect.left - parentRect.left) + 'px';
+                        slide1.style.width = rect.width + 'px';
+                        slide1.style.opacity = '1';
+                    });
+
+                    if (slide2) {
+                        link.addEventListener('mouseover', function() {
+                            const rect = this.parentElement.getBoundingClientRect();
+                            const parentRect = this.parentElement.parentElement.getBoundingClientRect();
+                            slide2.style.left = (rect.left - parentRect.left) + 'px';
+                            slide2.style.width = rect.width + 'px';
+                            slide2.style.opacity = '1';
+                            slide2.classList.add('squeeze');
+                        });
+
+                        link.addEventListener('mouseout', function() {
+                            slide2.style.opacity = '0';
+                            slide2.classList.remove('squeeze');
+                        });
+                    }
+                });
+
+                // 设置当前页面状态
+                const currentLink = document.querySelector('#nav li:nth-of-type(6) a');
+                if (currentLink && slide1) {
+                    const rect = currentLink.parentElement.getBoundingClientRect();
+                    const parentRect = currentLink.parentElement.parentElement.getBoundingClientRect();
+                    slide1.style.left = (rect.left - parentRect.left) + 'px';
+                    slide1.style.width = rect.width + 'px';
+                }
+            }
+        }
+
+        waitForJQuery(function() {
+            console.log('jQuery已加载，开始初始化导航栏');
+
+            // 添加自定义easing函数
+            if (typeof $ !== 'undefined') {
+                // 确保$.easing对象存在
+                if (!$.easing) {
+                    $.easing = {};
+                }
+
+                // 添加自定义easing函数
+                $.easing.easeOutCubic = function (x, t, b, c, d) {
+                    return c*((t=t/d-1)*t*t + 1) + b;
+                };
+
+                console.log('自定义easing函数已添加');
+                console.log('可用的easing函数:', Object.keys($.easing));
+            } else {
+                console.error('jQuery未加载，无法添加easing函数');
+            }
+
+            $(document).ready(function() {
             $("#nav a").on("click", function () {
                 var position = $(this).parent().position();
                 var width = $(this).parent().width();
@@ -1600,10 +1693,13 @@
                 $("#nav .slide2").css({ opacity: 0 }).removeClass("squeeze");
             });
 
-            // 设置当前页面的活动状态（项目经验是第4个，索引为6，因为前面有slide1和slide2）
+            // 设置当前页面的活动状态（项目经验是第4个导航项，索引为6，因为前面有slide1和slide2）
             var currentWidth = $("#nav li:nth-of-type(6) a").parent("li").width();
             var current = $("#nav li:nth-of-type(6) a").position();
-            $("#nav .slide1").css({ left: +current.left, width: currentWidth });
+            if (current) {
+                $("#nav .slide1").css({ left: +current.left, width: currentWidth });
+            }
+            });
         });
 
         // 全局变量存储雷达图实例
@@ -1726,20 +1822,36 @@
 
         // 统计数字动画
         function animateStats() {
-            $('.stat-number').each(function() {
+            if (typeof $ === 'undefined') {
+                console.error('jQuery未加载，无法执行统计动画');
+                return;
+            }
+            $('.stat-number[data-count]').each(function() {
                 const $this = $(this);
-                const countTo = $this.data('count');
+                const countTo = parseFloat($this.data('count'));
+                const suffix = $this.data('suffix') || '';
 
+                const easingType = ($.easing && $.easing.easeOutCubic) ? 'easeOutCubic' : 'swing';
                 $({ countNum: 0 }).animate({
                     countNum: countTo
                 }, {
                     duration: 2000,
-                    easing: 'swing',
+                    easing: easingType,
                     step: function() {
-                        $this.text(Math.floor(this.countNum));
+                        if (countTo % 1 === 0) {
+                            // 整数
+                            $this.text(Math.floor(this.countNum) + suffix);
+                        } else {
+                            // 小数
+                            $this.text(this.countNum.toFixed(1) + suffix);
+                        }
                     },
                     complete: function() {
-                        $this.text(this.countNum);
+                        if (countTo % 1 === 0) {
+                            $this.text(Math.floor(this.countNum) + suffix);
+                        } else {
+                            $this.text(this.countNum.toFixed(1) + suffix);
+                        }
                     }
                 });
             });
@@ -1747,6 +1859,10 @@
 
         // 动态技能进度条动画
         function animateSkillProgress() {
+            if (typeof $ === 'undefined') {
+                console.error('jQuery未加载，无法执行技能进度动画');
+                return;
+            }
             // 分别处理左右两列
             $('.progress-column').each(function(columnIndex) {
                 const $column = $(this);
@@ -1768,11 +1884,12 @@
                         $progressBar.css('width', targetWidth + '%');
 
                         // 百分比数字动画
+                        const easingType = ($.easing && $.easing.easeOutCubic) ? 'easeOutCubic' : 'swing';
                         $({ countNum: 0 }).animate({
                             countNum: targetPercentage
                         }, {
                             duration: 2000,
-                            easing: 'easeOutCubic',
+                            easing: easingType,
                             step: function() {
                                 $percentage.text(Math.floor(this.countNum) + '%');
                             },
@@ -1782,6 +1899,55 @@
                         });
                     }, totalDelay);
                 });
+            });
+        }
+
+        // 项目卡片统计动画
+        function animateProjectStats() {
+            if (typeof $ === 'undefined') {
+                console.error('jQuery未加载，无法执行项目统计动画');
+                return;
+            }
+
+            $('.project-card').each(function() {
+                const $card = $(this);
+                const rect = this.getBoundingClientRect();
+                const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+
+                if (isVisible && !$card.hasClass('stats-animated')) {
+                    $card.addClass('stats-animated');
+
+                    // 为这个卡片中的统计数字添加动画
+                    $card.find('.stat-number[data-count]').each(function() {
+                        const $this = $(this);
+                        const countTo = parseFloat($this.data('count'));
+                        const suffix = $this.data('suffix') || '';
+
+                        const easingType = ($.easing && $.easing.easeOutCubic) ? 'easeOutCubic' : 'swing';
+                        $({ countNum: 0 }).animate({
+                            countNum: countTo
+                        }, {
+                            duration: 1500,
+                            easing: easingType,
+                            step: function() {
+                                if (countTo % 1 === 0) {
+                                    // 整数
+                                    $this.text(Math.floor(this.countNum) + suffix);
+                                } else {
+                                    // 小数
+                                    $this.text(this.countNum.toFixed(1) + suffix);
+                                }
+                            },
+                            complete: function() {
+                                if (countTo % 1 === 0) {
+                                    $this.text(Math.floor(this.countNum) + suffix);
+                                } else {
+                                    $this.text(this.countNum.toFixed(1) + suffix);
+                                }
+                            }
+                        });
+                    });
+                }
             });
         }
 
@@ -1801,6 +1967,9 @@
                     }, 500);
                 }
             }
+
+            // 检查项目卡片动画
+            animateProjectStats();
         }
 
         // 初始化标志
@@ -1848,24 +2017,48 @@
 
         // 页面加载完成后初始化
         window.addEventListener('load', function() {
-            console.log('页面加载完成，开始初始化图表');
+            console.log('页面加载完成，开始初始化');
+            console.log('Chart.js 加载状态:', typeof Chart !== 'undefined' ? '已加载' : '未加载');
+            console.log('jQuery 加载状态:', typeof $ !== 'undefined' ? '已加载' : '未加载');
+
+            // 先初始化图表
             setTimeout(initializeCharts, 500);
+
+            // 然后初始化jQuery相关功能
+            waitForJQuery(function() {
+                console.log('开始初始化jQuery相关功能');
+                initProjectCardHover();
+                // 初始化时检查一次项目统计动画
+                setTimeout(animateProjectStats, 1000);
+            });
         });
 
         // 项目卡片悬停效果增强
-        $('.project-card').hover(
-            function() {
-                $(this).find('.card-image img').css('transform', 'scale(1.1)');
-            },
-            function() {
-                $(this).find('.card-image img').css('transform', 'scale(1)');
+        function initProjectCardHover() {
+            if (typeof $ === 'undefined') {
+                console.error('jQuery未加载，无法初始化项目卡片悬停效果');
+                return;
             }
-        );
+            $('.project-card').hover(
+                function() {
+                    $(this).find('.card-image img').css('transform', 'scale(1.1)');
+                },
+                function() {
+                    $(this).find('.card-image img').css('transform', 'scale(1)');
+                }
+            );
+        }
 
         // 备用初始化方法 - 使用jQuery ready事件
-        $(document).ready(function() {
-            console.log('jQuery ready 事件触发');
-            setTimeout(initializeCharts, 800);
+        waitForJQuery(function() {
+            $(document).ready(function() {
+                console.log('jQuery ready 事件触发');
+                console.log('DOM 元素检查:');
+                console.log('- skillsRadarChart 元素:', document.getElementById('skillsRadarChart') ? '存在' : '不存在');
+                console.log('- nav 元素:', document.getElementById('nav') ? '存在' : '不存在');
+                setTimeout(initializeCharts, 800);
+                initProjectCardHover(); // 初始化项目卡片悬停效果
+            });
         });
 
         // 窗口大小改变时重新绘制图表
@@ -1874,6 +2067,38 @@
                 skillsRadarChart.resize();
             }
         });
+
+        // 返回顶部按钮功能
+        const backToTopBtn = document.getElementById('back-to-top');
+        if (backToTopBtn) {
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.classList.add('show');
+                    backToTopBtn.classList.add('visible'); // 兼容两种样式
+                } else {
+                    backToTopBtn.classList.remove('show');
+                    backToTopBtn.classList.remove('visible');
+                }
+            });
+
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+
+        // 页面加载动画处理
+        const loader = document.querySelector('.loader');
+        if (loader) {
+            setTimeout(() => {
+                loader.style.opacity = '0';
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                }, 500);
+            }, 1000);
+        }
     </script>
 </body>
 </html>
