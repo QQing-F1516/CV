@@ -2136,7 +2136,6 @@ main {
         width: 12px;
         height: 12px;
     }
-}
 
 @media (max-width: 992px) and (min-width: 769px) {
     .carousel-gallery {
