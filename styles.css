@@ -1,0 +1,412 @@
+/* ===============================
+   新增样式 - 从 index.html 提取
+   =============================== */
+
+/* 首页主容器 */
+.index2-shell{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* 英雄区域头部 */
+.index2-header{
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    clip-path: polygon(0 0, 100% 0%, 100% 85%, 0 100%);
+    transition: clip-path 0.5s ease;
+}
+
+/* 背景图片 */
+.index2-img{
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.1)), url('./img/1\ -\ 副本.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    transform: scale(1);
+    transition: transform 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 英雄区域内容 */
+.hero-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 10;
+}
+
+.hero-overlay h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero-overlay p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+.hero-cta {
+    animation: fadeInUp 1s ease-out 0.6s both;
+}
+
+/* 主要内容区域 */
+.index2-main{
+    width: 100%;
+    padding: 80px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    position: relative;
+}
+
+.index2-main h2{
+    font-size: 3.5rem;
+    margin-bottom: 40px;
+    color: #4a6cf7;
+    text-align: center;
+    position: relative;
+}
+
+.index2-main h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, #4a6cf7, #667eea);
+    border-radius: 2px;
+}
+
+/* 动画效果 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 优化后的导航栏样式 */
+#nav {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    border: none;
+    border-radius: 50px;
+    display: flex;
+    list-style: none;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 8px;
+    transition: all 0.3s ease;
+}
+
+#nav:hover {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    transform: translateX(-50%) translateY(-2px);
+}
+
+#nav li a {
+    position: relative;
+    padding: 12px 30px;
+    font: 500 16px 'Segoe UI', sans-serif;
+    border: none;
+    outline: none;
+    color: #4a6cf7;
+    display: inline-block;
+    text-decoration: none;
+    z-index: 3;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+#nav li a:hover {
+    color: white;
+}
+
+.slide1,
+.slide2 {
+    position: absolute;
+    display: inline-block;
+    height: 40px;
+    border-radius: 25px;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1.05);
+}
+
+.slide1 {
+    background: linear-gradient(135deg, #4a6cf7 0%, #667eea 100%);
+    z-index: 2;
+    box-shadow: 0 4px 15px rgba(74, 108, 247, 0.3);
+}
+
+.slide2 {
+    opacity: 0;
+    background: linear-gradient(135deg, rgba(74, 108, 247, 0.8) 0%, rgba(102, 126, 234, 0.8) 100%);
+    z-index: 1;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5) inset;
+}
+
+.squeeze {
+    transform: scale(0.95);
+}
+
+/* 响应式导航栏 */
+@media (max-width: 768px) {
+    #nav {
+        top: 10px;
+        padding: 6px;
+    }
+
+    #nav li a {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    .slide1, .slide2 {
+        height: 36px;
+    }
+}
+
+/* 精彩瞬间横向布局样式 */
+.carousel-gallery-horizontal {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+    margin-top: 60px;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px;
+}
+
+.carousel-gallery-horizontal .carousel-container {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 25px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    min-height: 420px;
+}
+
+.carousel-gallery-horizontal .carousel-container:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+    background: rgba(255, 255, 255, 0.98);
+}
+
+.carousel-gallery-horizontal .carousel-container h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2d3748;
+    font-size: 1.3rem;
+    font-weight: 600;
+    position: relative;
+    letter-spacing: 0.5px;
+}
+
+.carousel-gallery-horizontal .carousel-container h3::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    border-radius: 1px;
+    opacity: 0.7;
+}
+
+.carousel-gallery-horizontal .carousel {
+    height: 320px;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    background: #f8f9fa;
+}
+
+.carousel-gallery-horizontal .carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    filter: brightness(1) contrast(1.02) saturate(1.05);
+}
+
+.carousel-gallery-horizontal .carousel-container:hover .carousel-item.active img {
+    transform: scale(1.05);
+    filter: brightness(1.02) contrast(1.05) saturate(1.1);
+}
+
+.carousel-gallery-horizontal .carousel-btn {
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #667eea;
+    border: none;
+    border-radius: 50%;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-gallery-horizontal .carousel-container:hover .carousel-btn {
+    opacity: 1;
+    visibility: visible;
+}
+
+.carousel-gallery-horizontal .carousel-btn:hover {
+    background: white;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    color: #764ba2;
+}
+
+.carousel-gallery-horizontal .carousel-btn.prev {
+    left: 15px;
+}
+
+.carousel-gallery-horizontal .carousel-btn.next {
+    right: 15px;
+}
+
+.carousel-gallery-horizontal .carousel-indicators {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+}
+
+.carousel-gallery-horizontal .indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-gallery-horizontal .indicator.active {
+    background: white;
+    transform: scale(1.2);
+    border-color: #667eea;
+    box-shadow: 0 3px 10px rgba(102, 126, 234, 0.3);
+}
+
+.carousel-gallery-horizontal .indicator:hover {
+    background: rgba(255, 255, 255, 0.8);
+    transform: scale(1.1);
+}
+
+.carousel-gallery-horizontal .carousel-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 15px 20px;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+    color: white;
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    backdrop-filter: blur(3px);
+    letter-spacing: 0.2px;
+    border-radius: 0 0 15px 15px;
+}
+
+.carousel-gallery-horizontal .carousel-container:hover .carousel-caption {
+    transform: translateY(0);
+}
+
+/* 响应式设计 */
+@media (max-width: 992px) {
+    .carousel-gallery-horizontal {
+        flex-direction: column;
+        gap: 40px;
+        padding: 0 15px;
+    }
+
+    .carousel-gallery-horizontal .carousel-container {
+        min-height: 380px;
+    }
+
+    .carousel-gallery-horizontal .carousel {
+        height: 280px;
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-gallery-horizontal .carousel-container {
+        padding: 20px;
+        min-height: 350px;
+    }
+
+    .carousel-gallery-horizontal .carousel {
+        height: 250px;
+    }
+
+    .carousel-gallery-horizontal .carousel-container h3 {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+    }
+
+    .carousel-gallery-horizontal .carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 0.9rem;
+    }
+
+    .carousel-gallery-horizontal .indicator {
+        width: 8px;
+        height: 8px;
+    }
+}

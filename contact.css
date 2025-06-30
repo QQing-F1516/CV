@@ -1,0 +1,420 @@
+/* ===============================
+   联系页面专用样式
+   =============================== */
+
+/* 优化联系页面布局 */
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.contact-info {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 40px;
+    border-radius: 20px;
+    color: white;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.contact-form-container {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.contact-item i {
+    font-size: 24px;
+    margin-right: 20px;
+    width: 40px;
+    text-align: center;
+}
+
+.social-links {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    color: white;
+    font-size: 20px;
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    background: rgba(255,255,255,0.3);
+    transform: translateY(-5px);
+}
+
+/* 表单样式优化 */
+.contact-form h3 {
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 28px;
+    text-align: center;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e1e5e9;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: rgb(70, 100, 180);
+}
+
+.btn.primary {
+    background: linear-gradient(135deg, rgb(70, 100, 180) 0%, rgb(102, 126, 234) 100%);
+    color: white;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 0 auto;
+}
+
+.btn.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(70, 100, 180, 0.3);
+}
+
+/* 社交媒体部分样式 */
+.social-media {
+    background: #f8f9fa;
+    padding: 60px 0;
+    margin: 40px 0;
+    border-radius: 20px;
+}
+
+.social-media .section-title {
+    text-align: center;
+    color: #333;
+    margin-bottom: 50px;
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.social-media .social-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    padding: 25px;
+    background: white;
+    border-radius: 15px;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    border: 1px solid #e9ecef;
+}
+
+.social-link:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    border-color: #667eea;
+}
+
+.social-icon {
+    font-size: 28px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 12px;
+    margin-right: 20px;
+    flex-shrink: 0;
+    line-height: 1;
+    text-align: center;
+}
+
+.social-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.social-info h4 {
+    margin: 0 0 5px 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    line-height: 1.2;
+}
+
+.social-info p {
+    margin: 0 0 8px 0;
+    color: #666;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.social-handle {
+    color: #667eea;
+    font-size: 13px;
+    font-weight: 500;
+    display: block;
+}
+
+/* 工作时间部分样式 */
+.availability {
+    background: white;
+    padding: 60px 0;
+    margin: 40px 0;
+    border-radius: 20px;
+    color: #333;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.availability .section-title {
+    text-align: center;
+    color: #333;
+    margin-bottom: 50px;
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.availability-info {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.availability-item {
+    text-align: center;
+    padding: 30px 20px;
+    background: #f8f9fa;
+    border-radius: 15px;
+    border: 1px solid #e9ecef;
+    transition: all 0.3s ease;
+}
+
+.availability-item:hover {
+    background: #e9ecef;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.availability-item h4 {
+    margin: 0 0 15px 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+}
+
+.availability-item p {
+    margin: 0;
+    color: #666;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* FAQ部分优化 */
+.faq-section {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    padding: 60px 40px;
+    border-radius: 20px;
+    margin-top: 40px;
+}
+
+.faq-section h3 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 40px;
+    font-size: 32px;
+}
+
+.faq-item {
+    background: white;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.faq-question {
+    padding: 25px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    transition: background 0.3s ease;
+}
+
+.faq-question:hover {
+    background: #f8f9fa;
+}
+
+.faq-question h4 {
+    color: #333;
+    font-size: 18px;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background: #f8f9fa;
+}
+
+.faq-answer p {
+    padding: 25px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-info,
+    .contact-form-container {
+        padding: 30px 20px;
+    }
+
+    /* 社交媒体响应式 */
+    .social-media .social-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 15px;
+    }
+
+    .social-link {
+        padding: 20px;
+    }
+
+    .social-icon {
+        font-size: 28px;
+        width: 50px;
+        height: 50px;
+        margin-right: 15px;
+    }
+
+    .social-info h4 {
+        font-size: 16px;
+    }
+
+    .social-info p {
+        font-size: 13px;
+    }
+
+    /* 工作时间响应式 */
+    .availability-info {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        padding: 0 15px;
+    }
+
+    .availability-item {
+        padding: 25px 15px;
+    }
+
+    .availability-item h4 {
+        font-size: 18px;
+    }
+
+    .availability-item p {
+        font-size: 15px;
+    }
+}
+
+/* 更小屏幕的响应式设计 */
+@media (max-width: 480px) {
+    .availability-info {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 0 10px;
+    }
+
+    .availability-item {
+        padding: 20px 15px;
+    }
+
+    .social-media .section-title,
+    .availability .section-title {
+        font-size: 28px;
+        margin-bottom: 40px;
+    }
+
+    .social-media,
+    .availability {
+        padding: 40px 0;
+        margin: 30px 0;
+    }
+}
